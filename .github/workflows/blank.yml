@@ -7,8 +7,6 @@ on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -24,6 +22,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+     
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -34,3 +33,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: java version
+        run: java -version
+      - name: maven version
+        run: mvn --version
+      - name: python version
+        run: python --version
+      - name: docker version
+        run: docker -v
+      - name: terraform version
+        run: terraform --version
